@@ -25,27 +25,32 @@
 <div id="headerpic"></div>
 
 <div id="menu">
-<tpl:isMenuFreshyEnabled true="0">
-<!-- menu normal a adapter -->
-	<ul>
-		<li class="first {{tpl:isCurrentPageItem menu="default"}}">
-			<a title="Accueil" href="{{tpl:BlogURL}}">Accueil</a>
-		</li>
-		<li class="page_item {{tpl:isCurrentPageItem menu="archive"}}">
-			<a title="Archives" href="{{tpl:BlogURL}}archive">Archives</a>
-		</li>
-		<li class="page_item {{tpl:isCurrentPageItem menu="user-defined" item="pages/Mentions-legales"}}">
-			<a title="Aide" href="{{tpl:BlogURL}}pages/Mentions-legales">Mentions légales</a>
-		</li>
-		<li class="page_item {{tpl:isCurrentPageItem menu="contactme"}}">
-			<a title="Contact" href="{{tpl:BlogURL}}contact">Contact</a>
-		</li>
-	</ul>
-<!-- fin menu normal a adapter -->
-</tpl:isMenuFreshyEnabled>
-<tpl:isMenuFreshyEnabled true="1">
+<tpl:SysIf has_tag="!MenuFreshy">
+	<tpl:SysIf has_tag="!SimpleMenu">
+		<!-- menu normal a adapter -->
+		<ul>
+			<li class="first {{tpl:isCurrentPageItem menu="default"}}">
+				<a title="Accueil" href="{{tpl:BlogURL}}">Accueil</a>
+			</li>
+			<li class="page_item {{tpl:isCurrentPageItem menu="archive"}}">
+				<a title="Archives" href="{{tpl:BlogURL}}archive">Archives</a>
+			</li>
+			<li class="page_item {{tpl:isCurrentPageItem menu="user-defined" item="pages/Mentions-legales"}}">
+				<a title="Aide" href="{{tpl:BlogURL}}pages/Mentions-legales">Mentions légales</a>
+			</li>
+			<li class="page_item {{tpl:isCurrentPageItem menu="contactme"}}">
+				<a title="Contact" href="{{tpl:BlogURL}}contact">Contact</a>
+			</li>
+		</ul>
+		<!-- fin menu normal a adapter -->
+	</tpl:SysIf>
+	<tpl:SysIf has_tag="SimpleMenu">
+		{{tpl:SimpleMenu}}
+	</tpl:SysIf>
+</tpl:SysIf>
+<tpl:SysIf has_tag="MenuFreshy">
 	{{tpl:MenuFreshy}}
-</tpl:isMenuFreshyEnabled>
+</tpl:SysIf>
 </div>
 
 <div id="menubottom"></div>

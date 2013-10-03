@@ -23,7 +23,6 @@ $core->tpl->addBlock('FlagFlashPostIf',array('dcFallSeason','flagFlashPostIf'));
 
 $core->tpl->addValue('showURLType',array('dcFallSeason','showURLType'));
 $core->tpl->addValue('isCurrentPageItem',array('dcFallSeason','isCurrentPageItem'));
-$core->tpl->addBlock('isMenuFreshyEnabled',array('dcFallSeason','isMenuFreshyEnabled'));
 
 class dcFallSeason
 {
@@ -116,27 +115,6 @@ class dcFallSeason
 		if (isset($attr['true'])) {
 			$sign = (boolean) $attr['true'] ? '' : '!';
 			$if = $sign.'$dc_fall_season_flag_flash_post';
-		}
-
-		if ($if != '') {
-			return '<?php if('.$if.') : ?>'.$content.'<?php endif; ?>';
-		} else {
-			return $content;
-		}
-	}
-
-	static public function isMenuFreshyEnabled($attr,$content)
-	{
-		$core = &$GLOBALS['core'];
-
-		$if = '';
-		if (isset($attr['true'])) {
-			$sign = (boolean) $attr['true'] ? '' : '!';
-			$cond = $core->plugins->moduleExists('menuFreshy') ? 1 : 0;
-			if ((boolean) $cond) {
-				$cond = isset($core->plugins->getDisabledModules['menuFreshy']) ? 0 : 1;
-			}
-			$if = $sign.'('.$cond.')';
 		}
 
 		if ($if != '') {
