@@ -1,4 +1,29 @@
 <?php
+# -- BEGIN LICENSE BLOCK ----------------------------------
+# This file is part of Fallseason, a theme for Dotclear 2.
+#
+# Copyright (c) Franck Paul and contributors
+# carnet.franck.paul@gmail.com
+#
+# Licensed under the GPL version 2.0 license.
+# A copy of this license is available in LICENSE file or at
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+# -- END LICENSE BLOCK ------------------------------------
+
+if (!defined('DC_RC_PATH')) { return; }
+
+// Add Flag management to the template scheme
+
+$core->tpl->addValue('FlagFirstPage',array('dcFallSeason','flagFirstPage'));
+$core->tpl->addBlock('FlagFirstPageIf',array('dcFallSeason','flagFirstPageIf'));
+$core->tpl->addValue('FlagFlashPost',array('dcFallSeason','flagFlashPost'));
+$core->tpl->addBlock('FlagFlashPostIf',array('dcFallSeason','flagFlashPostIf'));
+
+// Add Menu management to the template scheme
+
+$core->tpl->addValue('showURLType',array('dcFallSeason','showURLType'));
+$core->tpl->addValue('isCurrentPageItem',array('dcFallSeason','isCurrentPageItem'));
+$core->tpl->addBlock('isMenuFreshyEnabled',array('dcFallSeason','isMenuFreshyEnabled'));
 
 class dcFallSeason
 {
@@ -11,11 +36,11 @@ class dcFallSeason
 
 	static public function isCurrentPageItem($attr)
 	{
-		$current = false;
-
 		$core = &$GLOBALS['core'];
 		$mode = $core->url->type;
-		
+
+		$current = false;
+
 		if (isset($attr['menu'])) {
 			$menu = (string) $attr['menu'];
 		} else {
@@ -73,7 +98,7 @@ class dcFallSeason
 			return $content;
 		}
 	}
-	
+
 	static public function flagFlashPost($attr)
 	{
 		if (isset($attr['true'])) {
@@ -99,11 +124,11 @@ class dcFallSeason
 			return $content;
 		}
 	}
-	
+
 	static public function isMenuFreshyEnabled($attr,$content)
 	{
 		$core = &$GLOBALS['core'];
-		
+
 		$if = '';
 		if (isset($attr['true'])) {
 			$sign = (boolean) $attr['true'] ? '' : '!';
@@ -120,19 +145,4 @@ class dcFallSeason
 			return $content;
 		}
 	}
-	
 }
-
-// Add Flag management to the template scheme
-
-$core->tpl->addValue('FlagFirstPage',array('dcFallSeason','flagFirstPage'));
-$core->tpl->addBlock('FlagFirstPageIf',array('dcFallSeason','flagFirstPageIf'));
-$core->tpl->addValue('FlagFlashPost',array('dcFallSeason','flagFlashPost'));
-$core->tpl->addBlock('FlagFlashPostIf',array('dcFallSeason','flagFlashPostIf'));
-
-// Add Menu management to the template scheme
-
-$core->tpl->addValue('showURLType',array('dcFallSeason','showURLType'));
-$core->tpl->addValue('isCurrentPageItem',array('dcFallSeason','isCurrentPageItem'));
-$core->tpl->addBlock('isMenuFreshyEnabled',array('dcFallSeason','isMenuFreshyEnabled'))
-?>
