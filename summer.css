@@ -1,0 +1,24 @@
+h2 {
+	background-image: url(images/summer/db2.gif);
+}
+h2.intro {
+	background-image: url(images/summer/db1.gif);
+}
+#headerpic {
+	background: #fff url(images/summer/fall_leaves.jpg) repeat-x bottom left;
+}
+#menu {
+	background: #7F8400 url(images/summer/menubg.gif) repeat-x top left;
+}
+#menu ul li a:hover, #menu ul li a:active, #menu ul li.current_page_item a {
+	background: #7F8400 url(images/summer/menuactive.gif) repeat-x top left;
+}
+.post-content ul li {
+	list-style-image: url(images/summer/db3.gif);
+}
+#attachments ul li {
+	list-style-image:url(images/summer/db3.gif);
+}
+#comments h3, #pings h3, #pr h3, #comment-form h3 {
+	background-image:url(images/summer/db2.gif);
+}

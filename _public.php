@@ -12,6 +12,9 @@
 
 if (!defined('DC_RC_PATH')) { return; }
 
+# Behaviors
+$core->addBehavior('publicHeadContent',array('dcFallSeason','publicHeadContent'));
+
 // Add Flag management to the template scheme
 
 $core->tpl->addValue('FlagFirstPage',array('dcFallSeason','flagFirstPage'));
@@ -23,9 +26,44 @@ $core->tpl->addBlock('FlagFlashPostIf',array('dcFallSeason','flagFlashPostIf'));
 
 $core->tpl->addValue('showURLType',array('dcFallSeason','showURLType'));
 $core->tpl->addValue('isCurrentPageItem',array('dcFallSeason','isCurrentPageItem'));
+$core->tpl->addValue('currentSeason',array('dcFallSeason','currentSeason'));
 
 class dcFallSeason
 {
+	public static function publicHeadContent($core)
+	{
+		echo
+		'<style type="text/css">'."\n".
+		'@import url('.
+			$core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/'.
+			dcFallSeason::currentSeasonHelper().'.css);'."\n".
+		"</style>\n";
+	}
+
+	static public function currentSeason($attr)
+	{
+		return '<?php echo dcFallSeason::currentSeasonHelper(); ?>';
+	}
+
+	static public function currentSeasonHelper()
+	{
+		$dates = array(320,621,923,1221);
+		$today = getdate();
+		$serial = $today['mon'] * 100 + $today['mday'];
+
+		if (($serial >= $dates[0]) && ($serial < $dates[1])) {
+			$season = 'spring';
+		} elseif (($serial >= $dates[1]) && ($serial < $dates[2])) {
+			$season = 'summer';
+		} elseif (($serial >= $dates[2]) && ($serial < $dates[3])) {
+			$season = 'autumn';
+		} else {
+			$season = 'winter';
+		}
+
+		return $season;
+	}
+
 	static public function showURLType($attr)
 	{
 		$core = &$GLOBALS['core'];
