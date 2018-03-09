@@ -1,24 +1,24 @@
 h2 {
-	background-image: url(images/spring/db2.gif);
+  background-image: url(images/spring/db2.gif);
 }
 h2.intro {
-	background-image: url(images/spring/db1.gif);
+  background-image: url(images/spring/db1.gif);
 }
 #headerpic {
-	background: #fff url(images/spring/fall_leaves.jpg) repeat-x bottom left;
+  background: #fff url(images/spring/fall_leaves.jpg) repeat-x bottom left;
 }
 #menu {
-	background: #7F8400 url(images/spring/menubg.gif) repeat-x top left;
+  background: #7F8400 url(images/spring/menubg.gif) repeat-x top left;
 }
 #menu ul li a:hover, #menu ul li a:active, #menu ul li.current_page_item a {
-	background: #7F8400 url(images/spring/menuactive.gif) repeat-x top left;
+  background: #7F8400 url(images/spring/menuactive.gif) repeat-x top left;
 }
 .post-content ul li {
-	list-style-image: url(images/spring/db3.gif);
+  list-style-image: url(images/spring/db3.gif);
 }
 #attachments ul li {
-	list-style-image:url(images/spring/db3.gif);
+  list-style-image: url(images/spring/db3.gif);
 }
 #comments h3, #pings h3, #pr h3, #comment-form h3 {
-	background-image:url(images/spring/db2.gif);
+  background-image: url(images/spring/db2.gif);
 }
