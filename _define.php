@@ -16,7 +16,8 @@ $this->registerModule(
     "A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul", // Description
     "Franck Paul",                                                              // Author
     '1.5',                                                                      // Version
-    array(
-        'type' => 'theme' // Type
-    )
+    [
+        'requires' => [['core', '2.13']], // Dependencies
+        'type'     => 'theme'            // Type
+    ]
 );

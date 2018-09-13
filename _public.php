@@ -14,20 +14,20 @@ namespace themes\fallseason;
 if (!defined('DC_RC_PATH')) {return;}
 
 # Behaviors
-$core->addBehavior('publicHeadContent', array(__NAMESPACE__ . '\dcFallSeason', 'publicHeadContent'));
+$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\dcFallSeason', 'publicHeadContent']);
 
 // Add Flag management to the template scheme
 
-$core->tpl->addValue('FlagFirstPage', array(__NAMESPACE__ . '\dcFallSeason', 'flagFirstPage'));
-$core->tpl->addBlock('FlagFirstPageIf', array(__NAMESPACE__ . '\dcFallSeason', 'flagFirstPageIf'));
-$core->tpl->addValue('FlagFlashPost', array(__NAMESPACE__ . '\dcFallSeason', 'flagFlashPost'));
-$core->tpl->addBlock('FlagFlashPostIf', array(__NAMESPACE__ . '\dcFallSeason', 'flagFlashPostIf'));
+$core->tpl->addValue('FlagFirstPage', [__NAMESPACE__ . '\dcFallSeason', 'flagFirstPage']);
+$core->tpl->addBlock('FlagFirstPageIf', [__NAMESPACE__ . '\dcFallSeason', 'flagFirstPageIf']);
+$core->tpl->addValue('FlagFlashPost', [__NAMESPACE__ . '\dcFallSeason', 'flagFlashPost']);
+$core->tpl->addBlock('FlagFlashPostIf', [__NAMESPACE__ . '\dcFallSeason', 'flagFlashPostIf']);
 
 // Add Menu management to the template scheme
 
-$core->tpl->addValue('showURLType', array(__NAMESPACE__ . '\dcFallSeason', 'showURLType'));
-$core->tpl->addValue('isCurrentPageItem', array(__NAMESPACE__ . '\dcFallSeason', 'isCurrentPageItem'));
-$core->tpl->addValue('currentSeason', array(__NAMESPACE__ . '\dcFallSeason', 'currentSeason'));
+$core->tpl->addValue('showURLType', [__NAMESPACE__ . '\dcFallSeason', 'showURLType']);
+$core->tpl->addValue('isCurrentPageItem', [__NAMESPACE__ . '\dcFallSeason', 'isCurrentPageItem']);
+$core->tpl->addValue('currentSeason', [__NAMESPACE__ . '\dcFallSeason', 'currentSeason']);
 
 class dcFallSeason
 {
@@ -48,7 +48,7 @@ class dcFallSeason
 
     public static function currentSeasonHelper()
     {
-        $dates  = array(320, 621, 923, 1221);
+        $dates  = [320, 621, 923, 1221];
         $today  = getdate();
         $serial = $today['mon'] * 100 + $today['mday'];
 
