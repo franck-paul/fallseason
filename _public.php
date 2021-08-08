@@ -8,10 +8,11 @@
  * @copyright Franck Paul (carnet.franck.paul@gmail.com)
  * @copyright GPL-2.0
  */
-
 namespace themes\fallseason;
 
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 # Behaviors
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\dcFallSeason', 'publicHeadContent']);
@@ -69,6 +70,7 @@ class dcFallSeason
     {
         $core = &$GLOBALS['core'];
         $mode = $core->url->type;
+
         return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . \html::stripHostURL($core->blog->url) . '"; ?>';
     }
 
@@ -98,12 +100,14 @@ class dcFallSeason
                         $current = true;
                     }
                 }
+
                 break;
 
             default:
                 if ($menu == $mode) {
                     $current = true;
                 }
+
                 break;
         }
 
@@ -117,6 +121,7 @@ class dcFallSeason
         } else {
             $flag = 'false';
         }
+
         return '<?php $dc_fallSeason_flag_first_page = ' . $flag . '; ?>';
     }
 
@@ -131,9 +136,9 @@ class dcFallSeason
 
         if ($if != '') {
             return '<?php if(' . $if . ') : ?>' . $content . '<?php endif; ?>';
-        } else {
-            return $content;
         }
+
+        return $content;
     }
 
     public static function flagFlashPost($attr)
@@ -143,6 +148,7 @@ class dcFallSeason
         } else {
             $flag = 'false';
         }
+
         return '<?php $dc_fall_season_flag_flash_post = ' . $flag . '; ?>';
     }
 
@@ -157,8 +163,8 @@ class dcFallSeason
 
         if ($if != '') {
             return '<?php if(' . $if . ') : ?>' . $content . '<?php endif; ?>';
-        } else {
-            return $content;
         }
+
+        return $content;
     }
 }
