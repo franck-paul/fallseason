@@ -19,6 +19,10 @@ $this->registerModule(
     '1.5',                                                                      // Version
     [
         'requires' => [['core', '2.13']], // Dependencies
-        'type'     => 'theme'            // Type
+        'type'     => 'theme',            // Type
+
+        'details'    => 'https://open-time.net/?q=fallseason',       // Details URL
+        'support'    => 'https://github.com/franck-paul/fallseason', // Support URL
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/fallseason/main/dcstore.xml'
     ]
 );
