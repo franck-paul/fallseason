@@ -13,16 +13,16 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-    'FallSeason',                                                               // Name
-    'A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul', // Description
-    'Franck Paul',                                                              // Author
-    '1.5',                                                                      // Version
+    'FallSeason',
+    'A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul',
+    'Franck Paul',
+    '2.0',
     [
-        'requires' => [['core', '2.13']], // Dependencies
-        'type'     => 'theme',            // Type
+        'requires' => [['core', '2.24']],
+        'type'     => 'theme',
 
-        'details'    => 'https://open-time.net/?q=fallseason',       // Details URL
-        'support'    => 'https://github.com/franck-paul/fallseason', // Support URL
-        'repository' => 'https://raw.githubusercontent.com/franck-paul/fallseason/master/dcstore.xml'
+        'details'    => 'https://open-time.net/?q=fallseason',
+        'support'    => 'https://github.com/franck-paul/fallseason',
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/fallseason/master/dcstore.xml',
     ]
 );

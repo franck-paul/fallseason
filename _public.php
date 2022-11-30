@@ -8,6 +8,7 @@
  * @copyright Franck Paul (carnet.franck.paul@gmail.com)
  * @copyright GPL-2.0
  */
+
 namespace themes\fallseason;
 
 if (!defined('DC_RC_PATH')) {
@@ -15,34 +16,34 @@ if (!defined('DC_RC_PATH')) {
 }
 
 # Behaviors
-$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\dcFallSeason', 'publicHeadContent']);
+\dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\dcFallSeason', 'publicHeadContent']);
 
 // Add Flag management to the template scheme
 
-$core->tpl->addValue('FlagFirstPage', [__NAMESPACE__ . '\dcFallSeason', 'flagFirstPage']);
-$core->tpl->addBlock('FlagFirstPageIf', [__NAMESPACE__ . '\dcFallSeason', 'flagFirstPageIf']);
-$core->tpl->addValue('FlagFlashPost', [__NAMESPACE__ . '\dcFallSeason', 'flagFlashPost']);
-$core->tpl->addBlock('FlagFlashPostIf', [__NAMESPACE__ . '\dcFallSeason', 'flagFlashPostIf']);
+\dcCore::app()->tpl->addValue('FlagFirstPage', [__NAMESPACE__ . '\dcFallSeason', 'flagFirstPage']);
+\dcCore::app()->tpl->addBlock('FlagFirstPageIf', [__NAMESPACE__ . '\dcFallSeason', 'flagFirstPageIf']);
+\dcCore::app()->tpl->addValue('FlagFlashPost', [__NAMESPACE__ . '\dcFallSeason', 'flagFlashPost']);
+\dcCore::app()->tpl->addBlock('FlagFlashPostIf', [__NAMESPACE__ . '\dcFallSeason', 'flagFlashPostIf']);
 
 // Add Menu management to the template scheme
 
-$core->tpl->addValue('showURLType', [__NAMESPACE__ . '\dcFallSeason', 'showURLType']);
-$core->tpl->addValue('isCurrentPageItem', [__NAMESPACE__ . '\dcFallSeason', 'isCurrentPageItem']);
-$core->tpl->addValue('currentSeason', [__NAMESPACE__ . '\dcFallSeason', 'currentSeason']);
+\dcCore::app()->tpl->addValue('showURLType', [__NAMESPACE__ . '\dcFallSeason', 'showURLType']);
+\dcCore::app()->tpl->addValue('isCurrentPageItem', [__NAMESPACE__ . '\dcFallSeason', 'isCurrentPageItem']);
+\dcCore::app()->tpl->addValue('currentSeason', [__NAMESPACE__ . '\dcFallSeason', 'currentSeason']);
 
 class dcFallSeason
 {
-    public static function publicHeadContent($core)
+    public static function publicHeadContent()
     {
         echo
         '<style type="text/css">' . "\n" .
         '@import url(' .
-        $core->blog->settings->system->themes_url . '/' . $core->blog->settings->system->theme . '/' .
+        \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme . '/' .
         self::currentSeasonHelper() . '.css);' . "\n" .
             "</style>\n";
     }
 
-    public static function currentSeason($attr)
+    public static function currentSeason()
     {
         return '<?php echo ' . __NAMESPACE__ . '\dcFallSeason::currentSeasonHelper(); ?>';
     }
@@ -66,39 +67,27 @@ class dcFallSeason
         return $season;
     }
 
-    public static function showURLType($attr)
+    public static function showURLType()
     {
-        $core = &$GLOBALS['core'];
-        $mode = $core->url->type;
+        $mode = \dcCore::app()->url->type;
 
-        return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . \html::stripHostURL($core->blog->url) . '"; ?>';
+        return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . \html::stripHostURL(\dcCore::app()->blog->url) . '"; ?>';
     }
 
     public static function isCurrentPageItem($attr)
     {
-        $core = &$GLOBALS['core'];
-        $mode = $core->url->type;
+        $mode = \dcCore::app()->url->type;
 
         $current = false;
 
-        if (isset($attr['menu'])) {
-            $menu = (string) $attr['menu'];
-        } else {
-            $menu = '';
-        }
-        if (isset($attr['item'])) {
-            $item = (string) $attr['item'];
-        } else {
-            $item = '';
-        }
+        $menu = isset($attr['menu']) ? (string) $attr['menu'] : '';
+        $item = isset($attr['item']) ? (string) $attr['item'] : '';
 
         switch ($menu) {
             case 'user-defined':
-                if ($item != '') {
-                    // Compare item with current URL
-                    if ($_SERVER['REQUEST_URI'] == \html::stripHostURL($core->blog->url) . $item) {
-                        $current = true;
-                    }
+                // Compare item with current URL
+                if ($item != '' && $_SERVER['REQUEST_URI'] == \html::stripHostURL(\dcCore::app()->blog->url) . $item) {
+                    $current = true;
                 }
 
                 break;
@@ -116,11 +105,7 @@ class dcFallSeason
 
     public static function flagFirstPage($attr)
     {
-        if (isset($attr['true'])) {
-            $flag = 'true';
-        } else {
-            $flag = 'false';
-        }
+        $flag = isset($attr['true']) ? 'true' : 'false';
 
         return '<?php $dc_fallSeason_flag_first_page = ' . $flag . '; ?>';
     }
@@ -130,7 +115,7 @@ class dcFallSeason
         $if = '';
 
         if (isset($attr['true'])) {
-            $sign = (boolean) $attr['true'] ? '' : '!';
+            $sign = (bool) $attr['true'] ? '' : '!';
             $if   = $sign . '$dc_fallSeason_flag_first_page';
         }
 
@@ -143,11 +128,7 @@ class dcFallSeason
 
     public static function flagFlashPost($attr)
     {
-        if (isset($attr['true'])) {
-            $flag = 'true';
-        } else {
-            $flag = 'false';
-        }
+        $flag = isset($attr['true']) ? 'true' : 'false';
 
         return '<?php $dc_fall_season_flag_flash_post = ' . $flag . '; ?>';
     }
@@ -157,7 +138,7 @@ class dcFallSeason
         $if = '';
 
         if (isset($attr['true'])) {
-            $sign = (boolean) $attr['true'] ? '' : '!';
+            $sign = (bool) $attr['true'] ? '' : '!';
             $if   = $sign . '$dc_fall_season_flag_flash_post';
         }
 
