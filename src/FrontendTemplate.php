@@ -1,48 +1,24 @@
 <?php
 /**
- * @brief fallseason, a theme for Dotclear 2
+ * @brief fallseason, a plugin for Dotclear 2
  *
  * @package Dotclear
- * @subpackage Themes
+ * @subpackage Plugins
  *
- * @copyright Franck Paul (carnet.franck.paul@gmail.com)
- * @copyright GPL-2.0
+ * @author Franck Paul and contributors
+ *
+ * @copyright Franck Paul carnet.franck.paul@gmail.com
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
+declare(strict_types=1);
 
-namespace themes\fallseason;
+namespace Dotclear\Plugin\fallseason;
 
-if (!defined('DC_RC_PATH')) {
-    return;
-}
+use dcCore;
+use Dotclear\Helper\Html\Html;
 
-# Behaviors
-\dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\dcFallSeason', 'publicHeadContent']);
-
-// Add Flag management to the template scheme
-
-\dcCore::app()->tpl->addValue('FlagFirstPage', [__NAMESPACE__ . '\dcFallSeason', 'flagFirstPage']);
-\dcCore::app()->tpl->addBlock('FlagFirstPageIf', [__NAMESPACE__ . '\dcFallSeason', 'flagFirstPageIf']);
-\dcCore::app()->tpl->addValue('FlagFlashPost', [__NAMESPACE__ . '\dcFallSeason', 'flagFlashPost']);
-\dcCore::app()->tpl->addBlock('FlagFlashPostIf', [__NAMESPACE__ . '\dcFallSeason', 'flagFlashPostIf']);
-
-// Add Menu management to the template scheme
-
-\dcCore::app()->tpl->addValue('showURLType', [__NAMESPACE__ . '\dcFallSeason', 'showURLType']);
-\dcCore::app()->tpl->addValue('isCurrentPageItem', [__NAMESPACE__ . '\dcFallSeason', 'isCurrentPageItem']);
-\dcCore::app()->tpl->addValue('currentSeason', [__NAMESPACE__ . '\dcFallSeason', 'currentSeason']);
-
-class dcFallSeason
+class FrontendTemplate
 {
-    public static function publicHeadContent()
-    {
-        echo
-        '<style type="text/css">' . "\n" .
-        '@import url(' .
-        \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme . '/' .
-        self::currentSeasonHelper() . '.css);' . "\n" .
-            "</style>\n";
-    }
-
     public static function currentSeason()
     {
         return '<?php echo ' . __NAMESPACE__ . '\dcFallSeason::currentSeasonHelper(); ?>';
@@ -69,14 +45,14 @@ class dcFallSeason
 
     public static function showURLType()
     {
-        $mode = \dcCore::app()->url->type;
+        $mode = dcCore::app()->url->type;
 
-        return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . \html::stripHostURL(\dcCore::app()->blog->url) . '"; ?>';
+        return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(dcCore::app()->blog->url) . '"; ?>';
     }
 
     public static function isCurrentPageItem($attr)
     {
-        $mode = \dcCore::app()->url->type;
+        $mode = dcCore::app()->url->type;
 
         $current = false;
 
@@ -86,7 +62,7 @@ class dcFallSeason
         switch ($menu) {
             case 'user-defined':
                 // Compare item with current URL
-                if ($item != '' && $_SERVER['REQUEST_URI'] == \html::stripHostURL(\dcCore::app()->blog->url) . $item) {
+                if ($item != '' && $_SERVER['REQUEST_URI'] == Html::stripHostURL(dcCore::app()->blog->url) . $item) {
                     $current = true;
                 }
 

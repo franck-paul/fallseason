@@ -8,17 +8,13 @@
  * @copyright Franck Paul (carnet.franck.paul@gmail.com)
  * @copyright GPL-2.0
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 $this->registerModule(
     'FallSeason',
     'A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul',
     'Franck Paul',
-    '2.0',
+    '3.0',
     [
-        'requires' => [['core', '2.24']],
+        'requires' => [['core', '2.26']],
         'type'     => 'theme',
 
         'details'    => 'https://open-time.net/?q=fallseason',
