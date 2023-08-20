@@ -12,42 +12,39 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\fallseason;
+namespace Dotclear\Theme\fallseason;
 
 use dcCore;
-use dcNsProcess;
+use Dotclear\Core\Process;
 
-class Frontend extends dcNsProcess
+class Frontend extends Process
 {
-    protected static $init = false; /** @deprecated since 2.27 */
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::FRONTEND);
-
-        return static::$init;
+        return self::status(My::checkContext(My::FRONTEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
         # Behaviors
-        dcCore::app()->addBehavior('publicHeadContent', [FrontendBehaviors::class, 'publicHeadContent']);
+        dcCore::app()->addBehavior('publicHeadContent', FrontendBehaviors::publicHeadContent(...));
 
         // Add Flag management to the template scheme
 
-        dcCore::app()->tpl->addValue('FlagFirstPage', [FrontendTemplate::class, 'flagFirstPage']);
-        dcCore::app()->tpl->addBlock('FlagFirstPageIf', [FrontendTemplate::class, 'flagFirstPageIf']);
-        dcCore::app()->tpl->addValue('FlagFlashPost', [FrontendTemplate::class, 'flagFlashPost']);
-        dcCore::app()->tpl->addBlock('FlagFlashPostIf', [FrontendTemplate::class, 'flagFlashPostIf']);
+        dcCore::app()->tpl->addValue('FlagFirstPage', FrontendTemplate::flagFirstPage(...));
+        dcCore::app()->tpl->addBlock('FlagFirstPageIf', FrontendTemplate::flagFirstPageIf(...));
+        dcCore::app()->tpl->addValue('FlagFlashPost', FrontendTemplate::flagFlashPost(...));
+        dcCore::app()->tpl->addBlock('FlagFlashPostIf', FrontendTemplate::flagFlashPostIf(...));
 
         // Add Menu management to the template scheme
 
-        dcCore::app()->tpl->addValue('showURLType', [FrontendTemplate::class, 'showURLType']);
-        dcCore::app()->tpl->addValue('isCurrentPageItem', [FrontendTemplate::class, 'isCurrentPageItem']);
-        dcCore::app()->tpl->addValue('currentSeason', [FrontendTemplate::class, 'currentSeason']);
+        dcCore::app()->tpl->addValue('showURLType', FrontendTemplate::showURLType(...));
+        dcCore::app()->tpl->addValue('isCurrentPageItem', FrontendTemplate::isCurrentPageItem(...));
+        dcCore::app()->tpl->addValue('currentSeason', FrontendTemplate::currentSeason(...));
 
         return true;
     }

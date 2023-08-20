@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\fallseason;
+namespace Dotclear\Theme\fallseason;
 
 use dcCore;
 
