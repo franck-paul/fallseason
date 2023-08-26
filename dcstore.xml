@@ -1,11 +1,11 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="fallseason">
     <name>FallSeason</name>
-    <version>3.0</version>
+    <version>4.0</version>
     <author>Franck Paul</author>
     <desc>A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul</desc>
-    <file>https://github.com/franck-paul/fallseason/releases/download/3.0/theme-fallseason-3.0.zip</file>
-    <da:dcmin>2.26</da:dcmin>
+    <file>https://github.com/franck-paul/fallseason/releases/download/4.0/theme-fallseason-4.0.zip</file>
+    <da:dcmin>2.27</da:dcmin>
     <da:details>https://open-time.net/?q=fallseason</da:details>
     <da:support>https://github.com/franck-paul/fallseason</da:support>
   </module>
