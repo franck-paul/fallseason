@@ -12,7 +12,7 @@ $this->registerModule(
     'FallSeason',
     'A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul',
     'Franck Paul',
-    '3.0',
+    '4.0',
     [
         'requires' => [['core', '2.27'], ['php', '8.1']],
         'type'     => 'theme',
