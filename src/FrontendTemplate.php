@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Theme\fallseason;
 
 use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 
 class FrontendTemplate
@@ -47,7 +48,7 @@ class FrontendTemplate
     {
         $mode = dcCore::app()->url->type;
 
-        return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(dcCore::app()->blog->url) . '"; ?>';
+        return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '"; ?>';
     }
 
     public static function isCurrentPageItem($attr)
@@ -62,7 +63,7 @@ class FrontendTemplate
         switch ($menu) {
             case 'user-defined':
                 // Compare item with current URL
-                if ($item != '' && $_SERVER['REQUEST_URI'] == Html::stripHostURL(dcCore::app()->blog->url) . $item) {
+                if ($item != '' && $_SERVER['REQUEST_URI'] == Html::stripHostURL(App::blog()->url()) . $item) {
                     $current = true;
                 }
 

@@ -14,7 +14,7 @@ $this->registerModule(
     'Franck Paul',
     '4.0',
     [
-        'requires' => [['core', '2.27'], ['php', '8.1']],
+        'requires' => [['core', '2.28']],
         'type'     => 'theme',
 
         'details'    => 'https://open-time.net/?q=fallseason',
