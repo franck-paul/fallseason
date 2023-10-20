@@ -3,7 +3,7 @@
  * @brief fallseason, a plugin for Dotclear 2
  *
  * @package Dotclear
- * @subpackage Plugins
+ * @subpackage Themes
  *
  * @author Franck Paul and contributors
  *
@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Theme\fallseason;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -31,20 +31,22 @@ class Frontend extends Process
         }
 
         # Behaviors
-        dcCore::app()->addBehavior('publicHeadContent', FrontendBehaviors::publicHeadContent(...));
+        App::behavior()->addBehaviors([
+            'publicHeadContent' => FrontendBehaviors::publicHeadContent(...),
+        ]);
 
         // Add Flag management to the template scheme
 
-        dcCore::app()->tpl->addValue('FlagFirstPage', FrontendTemplate::flagFirstPage(...));
-        dcCore::app()->tpl->addBlock('FlagFirstPageIf', FrontendTemplate::flagFirstPageIf(...));
-        dcCore::app()->tpl->addValue('FlagFlashPost', FrontendTemplate::flagFlashPost(...));
-        dcCore::app()->tpl->addBlock('FlagFlashPostIf', FrontendTemplate::flagFlashPostIf(...));
+        App::frontend()->template()->addValue('FlagFirstPage', FrontendTemplate::flagFirstPage(...));
+        App::frontend()->template()->addBlock('FlagFirstPageIf', FrontendTemplate::flagFirstPageIf(...));
+        App::frontend()->template()->addValue('FlagFlashPost', FrontendTemplate::flagFlashPost(...));
+        App::frontend()->template()->addBlock('FlagFlashPostIf', FrontendTemplate::flagFlashPostIf(...));
 
         // Add Menu management to the template scheme
 
-        dcCore::app()->tpl->addValue('showURLType', FrontendTemplate::showURLType(...));
-        dcCore::app()->tpl->addValue('isCurrentPageItem', FrontendTemplate::isCurrentPageItem(...));
-        dcCore::app()->tpl->addValue('currentSeason', FrontendTemplate::currentSeason(...));
+        App::frontend()->template()->addValue('showURLType', FrontendTemplate::showURLType(...));
+        App::frontend()->template()->addValue('isCurrentPageItem', FrontendTemplate::isCurrentPageItem(...));
+        App::frontend()->template()->addValue('currentSeason', FrontendTemplate::currentSeason(...));
 
         return true;
     }

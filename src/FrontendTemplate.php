@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Theme\fallseason;
 
-use dcCore;
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 
@@ -46,14 +45,14 @@ class FrontendTemplate
 
     public static function showURLType()
     {
-        $mode = dcCore::app()->url->type;
+        $mode = App::url()->type;
 
         return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '"; ?>';
     }
 
     public static function isCurrentPageItem($attr)
     {
-        $mode = dcCore::app()->url->type;
+        $mode = App::url()->type;
 
         $current = false;
 
