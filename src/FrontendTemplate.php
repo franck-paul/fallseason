@@ -21,7 +21,7 @@ class FrontendTemplate
 {
     public static function currentSeason()
     {
-        return '<?php echo ' . __NAMESPACE__ . '\dcFallSeason::currentSeasonHelper(); ?>';
+        return '<?php echo ' . self::class . '::currentSeasonHelper(); ?>';
     }
 
     public static function currentSeasonHelper()
