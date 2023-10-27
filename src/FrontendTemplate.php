@@ -45,14 +45,14 @@ class FrontendTemplate
 
     public static function showURLType()
     {
-        $mode = App::url()->type;
+        $mode = App::url()->getType();
 
         return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '"; ?>';
     }
 
     public static function isCurrentPageItem($attr)
     {
-        $mode = App::url()->type;
+        $mode = App::url()->getType();
 
         $current = false;
 
