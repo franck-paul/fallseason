@@ -19,6 +19,6 @@ $this->registerModule(
 
         'details'    => 'https://open-time.net/?q=fallseason',
         'support'    => 'https://github.com/franck-paul/fallseason',
-        'repository' => 'https://raw.githubusercontent.com/franck-paul/fallseason/master/dcstore.xml',
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/fallseason/main/dcstore.xml',
     ]
 );

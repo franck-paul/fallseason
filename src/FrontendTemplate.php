@@ -21,7 +21,7 @@ class FrontendTemplate
 {
     public static function currentSeason()
     {
-        return '<?php echo ' . self::class . '::currentSeasonHelper(); ?>';
+        return '<?= ' . self::class . '::currentSeasonHelper() ?>';
     }
 
     public static function currentSeasonHelper()
@@ -47,7 +47,7 @@ class FrontendTemplate
     {
         $mode = App::url()->getType();
 
-        return '<?php echo "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '"; ?>';
+        return '<?= "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '" ?>';
     }
 
     public static function isCurrentPageItem($attr)
