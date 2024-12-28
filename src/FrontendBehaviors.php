@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @brief fallseason, a plugin for Dotclear 2
  *
@@ -18,13 +19,15 @@ use Dotclear\App;
 
 class FrontendBehaviors
 {
-    public static function publicHeadContent()
+    public static function publicHeadContent(): string
     {
         echo
         '<style type="text/css">' . "\n" .
         '@import url(' .
         App::blog()->settings()->system->themes_url . '/' . App::blog()->settings()->system->theme . '/' .
         FrontendTemplate::currentSeasonHelper() . '.css);' . "\n" .
-            "</style>\n";
+        "</style>\n";
+
+        return '';
     }
 }

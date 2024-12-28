@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @brief fallseason, a plugin for Dotclear 2
  *
@@ -19,12 +20,12 @@ use Dotclear\Helper\Html\Html;
 
 class FrontendTemplate
 {
-    public static function currentSeason()
+    public static function currentSeason(): string
     {
         return '<?= ' . self::class . '::currentSeasonHelper() ?>';
     }
 
-    public static function currentSeasonHelper()
+    public static function currentSeasonHelper(): string
     {
         $dates  = [320, 621, 923, 1221];
         $today  = getdate();
@@ -43,14 +44,14 @@ class FrontendTemplate
         return $season;
     }
 
-    public static function showURLType()
+    public static function showURLType(): string
     {
         $mode = App::url()->getType();
 
         return '<?= "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '" ?>';
     }
 
-    public static function isCurrentPageItem($attr)
+    public static function isCurrentPageItem(array $attr): string
     {
         $mode = App::url()->getType();
 
@@ -62,7 +63,7 @@ class FrontendTemplate
         switch ($menu) {
             case 'user-defined':
                 // Compare item with current URL
-                if ($item != '' && $_SERVER['REQUEST_URI'] == Html::stripHostURL(App::blog()->url()) . $item) {
+                if ($item !== '' && $_SERVER['REQUEST_URI'] == Html::stripHostURL(App::blog()->url()) . $item) {
                     $current = true;
                 }
 
@@ -79,14 +80,14 @@ class FrontendTemplate
         return (string) ($current ? ' current_page_item' : '');
     }
 
-    public static function flagFirstPage($attr)
+    public static function flagFirstPage(array $attr): string
     {
         $flag = isset($attr['true']) ? 'true' : 'false';
 
         return '<?php $dc_fallSeason_flag_first_page = ' . $flag . '; ?>';
     }
 
-    public static function flagFirstPageIf($attr, $content)
+    public static function flagFirstPageIf(array $attr, string $content): string
     {
         $if = '';
 
@@ -95,21 +96,21 @@ class FrontendTemplate
             $if   = $sign . '$dc_fallSeason_flag_first_page';
         }
 
-        if ($if != '') {
+        if ($if !== '') {
             return '<?php if(' . $if . ') : ?>' . $content . '<?php endif; ?>';
         }
 
         return $content;
     }
 
-    public static function flagFlashPost($attr)
+    public static function flagFlashPost(array $attr): string
     {
         $flag = isset($attr['true']) ? 'true' : 'false';
 
         return '<?php $dc_fall_season_flag_flash_post = ' . $flag . '; ?>';
     }
 
-    public static function flagFlashPostIf($attr, $content)
+    public static function flagFlashPostIf(array $attr, string $content): string
     {
         $if = '';
 
@@ -118,7 +119,7 @@ class FrontendTemplate
             $if   = $sign . '$dc_fall_season_flag_flash_post';
         }
 
-        if ($if != '') {
+        if ($if !== '') {
             return '<?php if(' . $if . ') : ?>' . $content . '<?php endif; ?>';
         }
 
