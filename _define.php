@@ -16,11 +16,13 @@ $this->registerModule(
     '5.2',
     [
         'date'     => '2003-08-13T13:42:00+0100',
-        'requires' => [['core', '2.28']],
+        'requires' => [['core', '2.35']],
         'type'     => 'theme',
+        'overload' => true,
 
         'details'    => 'https://open-time.net/?q=fallseason',
         'support'    => 'https://github.com/franck-paul/fallseason',
         'repository' => 'https://raw.githubusercontent.com/franck-paul/fallseason/main/dcstore.xml',
+        'license'    => 'gpl2',
     ]
 );

@@ -15,17 +15,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Theme\fallseason;
 
-use Dotclear\App;
-
 class FrontendBehaviors
 {
     public static function publicHeadContent(): string
     {
         echo
         '<style type="text/css">' . "\n" .
-        '@import url(' .
-        App::blog()->settings()->system->themes_url . '/' . App::blog()->settings()->system->theme . '/' .
-        FrontendTemplate::currentSeasonHelper() . '.css);' . "\n" .
+        '@import url(index.php?tf=' . FrontendTemplate::currentSeasonHelper() . '.css);' . "\n" .
         "</style>\n";
 
         return '';
