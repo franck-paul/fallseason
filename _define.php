@@ -13,9 +13,9 @@ $this->registerModule(
     'FallSeason',
     'A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul',
     'Franck Paul',
-    '5.2',
+    '6.0',
     [
-        'date'     => '2003-08-13T13:42:00+0100',
+        'date'     => '2025-06-27T13:15:49+0200',
         'requires' => [['core', '2.35']],
         'type'     => 'theme',
         'overload' => true,
