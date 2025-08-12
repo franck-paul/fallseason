@@ -52,7 +52,10 @@ class FrontendTemplate
         return '<?= "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '" ?>';
     }
 
-    public static function isCurrentPageItem(array|ArrayObject $attr): string
+    /**
+     * @param  ArrayObject<array-key, mixed>    $attr
+     */
+    public static function isCurrentPageItem(ArrayObject $attr): string
     {
         $mode = App::url()->getType();
 
@@ -81,14 +84,20 @@ class FrontendTemplate
         return (string) ($current ? ' current_page_item' : '');
     }
 
-    public static function flagFirstPage(array|ArrayObject $attr): string
+    /**
+     * @param  ArrayObject<array-key, mixed>    $attr
+     */
+    public static function flagFirstPage(ArrayObject $attr): string
     {
         $flag = isset($attr['true']) ? 'true' : 'false';
 
         return '<?php $dc_fallSeason_flag_first_page = ' . $flag . '; ?>';
     }
 
-    public static function flagFirstPageIf(array|ArrayObject $attr, string $content): string
+    /**
+     * @param  ArrayObject<array-key, mixed>    $attr
+     */
+    public static function flagFirstPageIf(ArrayObject $attr, string $content): string
     {
         $if = '';
 
@@ -104,14 +113,20 @@ class FrontendTemplate
         return $content;
     }
 
-    public static function flagFlashPost(array|ArrayObject $attr): string
+    /**
+     * @param  ArrayObject<array-key, mixed>    $attr
+     */
+    public static function flagFlashPost(ArrayObject $attr): string
     {
         $flag = isset($attr['true']) ? 'true' : 'false';
 
         return '<?php $dc_fall_season_flag_flash_post = ' . $flag . '; ?>';
     }
 
-    public static function flagFlashPostIf(array|ArrayObject $attr, string $content): string
+    /**
+     * @param  ArrayObject<array-key, mixed>    $attr
+     */
+    public static function flagFlashPostIf(ArrayObject $attr, string $content): string
     {
         $if = '';
 
