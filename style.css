@@ -71,6 +71,7 @@ p {
 img {
   border: solid 1px #dcdcdc;
   padding: 3px;
+  max-width: 100%;
 }
 
 img.left {
