@@ -11,7 +11,7 @@
  */
 $this->registerModule(
     'FallSeason',
-    'A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul',
+    'A WP theme designed by Sadish Bala, adapted to Dotclear 2 by Franck Paul',
     'Franck Paul',
     '7.0',
     [

@@ -3,11 +3,11 @@
     <name>FallSeason</name>
     <version>7.0</version>
     <author>Franck Paul</author>
-    <desc>A WP theme designed by Sadish Bala, adapted to DotClear 2 by Franck Paul</desc>
+    <desc>A WP theme designed by Sadish Bala, adapted to Dotclear 2 by Franck Paul</desc>
     <date>2025-09-07T14:19:28+0200</date>
     <file>https://github.com/franck-paul/fallseason/releases/download/7.0/theme-fallseason-7.0.zip</file>
     <da:dcmin>2.36</da:dcmin>
-    <da:details>https://open-time.net/?q=fallseason</da:details>
+    <da:details>https://dotclear.org/plugin/detail/fallseason</da:details>
     <da:support>https://github.com/franck-paul/fallseason</da:support>
   </module>
 </modules>
