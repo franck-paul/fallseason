@@ -8,7 +8,7 @@
  *
  * @author Franck Paul and contributors
  *
- * @copyright Franck Paul carnet.franck.paul@gmail.com
+ * @copyright Franck Paul contact@open-time.net
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
 declare(strict_types=1);
@@ -47,9 +47,14 @@ class FrontendTemplate
 
     public static function showURLType(): string
     {
-        $mode = App::url()->getType();
+        $mode        = App::url()->getType();
+        $request_uri = is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
 
-        return '<?= "mode=' . $mode . ' url=' . $_SERVER['REQUEST_URI'] . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '" ?>';
+        if ($request_uri === '') {
+            return '';
+        }
+
+        return '<?= "mode=' . $mode . ' url=' . $request_uri . ' - blog=' . Html::stripHostURL(App::blog()->url()) . '" ?>';
     }
 
     /**
@@ -61,8 +66,8 @@ class FrontendTemplate
 
         $current = false;
 
-        $menu = isset($attr['menu']) ? (string) $attr['menu'] : '';
-        $item = isset($attr['item']) ? (string) $attr['item'] : '';
+        $menu = isset($attr['menu']) && is_string($attr['menu']) ? $attr['menu'] : '';
+        $item = isset($attr['item']) && is_string($attr['item']) ? $attr['item'] : '';
 
         switch ($menu) {
             case 'user-defined':
