@@ -26,12 +26,12 @@ h3 {
 
 h2 {
   font-size: 1.4em;
-  padding-left: 18px;
+  padding-inline-start: 18px;
 }
 
 h2.intro {
   font-size: 1.7em;
-  padding-left: 24px;
+  padding-inline-start: 24px;
 }
 
 h2.intro span {
@@ -65,37 +65,48 @@ h6 {
 
 p {
   line-height: 1.6em;
-  margin: 0 0 0.5em;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+  margin-inline: 0;
 }
 
 img {
   border: solid 1px #dcdcdc;
   padding: 3px;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 img.left {
   position: relative;
-  float: left;
-  margin: 0em 1.8em 1.4em 0em;
+  float: inline-start;
+  margin-block-start: 0em;
+  margin-block-end: 1.4em;
+  margin-inline-start: 0em;
+  margin-inline-end: 1.8em;
 }
 
 img.right {
   position: relative;
-  float: right;
-  margin: 0em 0em 1.8em 1.8em;
+  float: inline-end;
+  margin-block-start: 0em;
+  margin-block-end: 1.8em;
+  margin-inline-start: 1.8em;
+  margin-inline-end: 0em;
 }
 
 img.profile {
   position: relative;
-  float: left;
+  float: inline-start;
   margin: 0.5em;
   padding: 3px;
 }
 
 blockquote {
   margin: 1em;
-  padding: 0 0 0 40px;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  padding-inline-start: 40px;
+  padding-inline-end: 0;
   color: #666;
   background: url(index.php?tf=images/blockquote.gif) no-repeat left top;
 }
@@ -137,12 +148,12 @@ fieldset {
 a {
   color: #b96d00;
   text-decoration: none;
-  border-bottom: #b96d00 1px dashed;
+  border-block-end: #b96d00 1px dashed;
 }
 
 a:hover {
   text-decoration: none;
-  border-bottom: #b96d00 1px solid;
+  border-block-end: #b96d00 1px solid;
 }
 
 a[hreflang]:after {
@@ -170,12 +181,18 @@ pre {
 
 pre {
   overflow: scroll;
-  width: 100%;
+  inline-size: 100%;
   display: block;
   border: solid 1px #dcdcdc;
-  padding: 10px 20px 10px 30px;
-  margin: 1em 0 1em 0;
-  text-align: left;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  padding-inline-start: 30px;
+  padding-inline-end: 20px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  text-align: start;
   line-height: 125%;
   white-space: pre-wrap;
   white-space: -moz-pre-wrap important;
@@ -193,23 +210,23 @@ sub {
 }
 
 sup {
-  top: calc(-0.83 * (1em - 4px));
+  inset-block-start: calc(-0.83 * (1em - 4px));
 }
 
 sub {
-  top: calc(0.415 * (1em - 4px));
+  inset-block-start: calc(0.415 * (1em - 4px));
 }
 
 html > body pre {
   overflow: auto;
-  width: auto;
+  inline-size: auto;
 }
 
 hr {
   background-color: #bbc4a3;
   border: 0pt none;
   color: #bbc4a3;
-  height: 1px;
+  block-size: 1px;
   margin: 2em 10em;
 }
 
@@ -245,7 +262,7 @@ hr {
   font-size: 1em;
   font-weight: normal;
   color: #aaa;
-  padding-left: 0;
+  padding-inline-start: 0;
   background-image: none;
 }
 
@@ -264,11 +281,11 @@ hr {
 }
 
 #topsearch input.text {
-  margin-right: 0.5em;
+  margin-inline-end: 0.5em;
   vertical-align: middle;
   border: solid 1px #f0f0f0;
   padding: 0.1em;
-  width: 10em;
+  inline-size: 10em;
 }
 
 #topsearch input.submit {
@@ -283,21 +300,26 @@ hr {
 
 #headerpic {
   position: relative;
-  height: 149px;
-  margin-bottom: 2px;
+  block-size: 149px;
+  margin-block-end: 2px;
 }
 
 #menu {
   position: relative;
-  height: 3.5em;
+  block-size: 3.5em;
   padding: 0 1em;
-  margin: 0 0 2px;
+  margin-block-start: 0;
+  margin-block-end: 2px;
+  margin-inline: 0;
   font-size: 1em;
   font-weight: normal;
 }
 
 #menu ul {
-  padding: 1em 0 0 0;
+  padding-block-start: 1em;
+  padding-block-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
   margin: 0;
 }
 
@@ -311,7 +333,10 @@ hr {
 #menu ul li a:link,
 #menu ul li a:visited {
   color: #fff;
-  padding: 0.5em 1em 0.9em 1em;
+  padding-block-start: 0.5em;
+  padding-block-end: 0.9em;
+  padding-inline-start: 1em;
+  padding-inline-end: 1em;
   text-decoration: none;
   border: none;
 }
@@ -324,15 +349,18 @@ hr {
 
 #menubottom {
   background: #fff url(index.php?tf=images/border1.gif) repeat-x;
-  height: 14px;
-  margin-bottom: 1.5em;
+  block-size: 14px;
+  margin-block-end: 1.5em;
 }
 
 .divider1 {
   position: relative;
   background: #fff url(index.php?tf=images/border2.gif) repeat-x;
-  height: 14px;
-  margin: 2em 0em 1.5em 0em;
+  block-size: 14px;
+  margin-block-start: 2em;
+  margin-block-end: 1.5em;
+  margin-inline-start: 0em;
+  margin-inline-end: 0em;
   clear: both;
 }
 
@@ -341,7 +369,7 @@ hr {
 }
 
 .post {
-  border-bottom: solid 1px #eaeaea;
+  border-block-end: solid 1px #eaeaea;
   margin: 2em 0;
 }
 
@@ -365,25 +393,34 @@ hr {
 
 .post-info .user {
   background: url(index.php?tf=images/user.png) no-repeat left center;
-  padding-left: 15px;
+  padding-inline-start: 15px;
 }
 
 .post-info .date {
   background: url(index.php?tf=images/date.gif) no-repeat left center;
-  padding-left: 15px;
-  margin: 0 0 0 1em;
+  padding-inline-start: 15px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 1em;
+  margin-inline-end: 0;
 }
 
 .post-info .category {
   background: url(index.php?tf=images/category.png) no-repeat left center;
-  padding-left: 15px;
-  margin: 0 0 0 1em;
+  padding-inline-start: 15px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 1em;
+  margin-inline-end: 0;
 }
 
 .post-info .tag {
   background: url(index.php?tf=images/tag.png) no-repeat left center;
-  padding-left: 15px;
-  margin: 0 0 0 1em;
+  padding-inline-start: 15px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 1em;
+  margin-inline-end: 0;
 }
 
 .post-tags {
@@ -402,7 +439,7 @@ hr {
 }
 
 .post-content {
-  padding-top: 1.3em;
+  padding-block-start: 1.3em;
 }
 
 .post-content h3,
@@ -410,16 +447,19 @@ hr {
 .post-content h5,
 .post-content h6 {
   color: #b96d00;
-  margin: 1.2em 0 1em 0;
+  margin-block-start: 1.2em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 .footnotes {
-  margin-top: 2em;
+  margin-block-start: 2em;
   font-size: 0.86em;
 }
 
 .footnotes h4 {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
   color: #787878;
 }
 
@@ -434,28 +474,28 @@ hr {
 
 .comment_count {
   background: url(index.php?tf=images/icon-comments.gif) no-repeat left center;
-  padding-left: 18px;
+  padding-inline-start: 18px;
 }
 
 .ping_count {
   background: url(index.php?tf=images/icon-trackbacks.gif) no-repeat left center;
-  padding-left: 18px;
-  margin-left: 1em;
+  padding-inline-start: 18px;
+  margin-inline-start: 1em;
 }
 
 .attach_count {
   background: url(index.php?tf=images/attach.png) no-repeat left center;
-  padding-left: 18px;
-  margin-left: 1em;
+  padding-inline-start: 18px;
+  margin-inline-start: 1em;
 }
 
 #attachments {
-  margin-top: 2em;
+  margin-block-start: 2em;
   font-size: 0.86em;
 }
 
 #attachments h3 {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
   color: #787878;
 }
 
@@ -466,16 +506,22 @@ hr {
   border: medium none;
   color: #114411;
   text-decoration: none;
-  margin: 2em 0pt 0pt 5px;
+  margin-block-start: 2em;
+  margin-block-end: 0pt;
+  margin-inline-start: 5px;
+  margin-inline-end: 0pt;
   font-family: Georgia, Verdana, Arial, serif;
   font-size: 1.4em;
   font-weight: bold;
-  padding-left: 18px;
+  padding-inline-start: 18px;
 }
 
 #comments dt {
   background: #fcfcfc url(index.php?tf=images/border2.gif) repeat-x scroll center top;
-  margin: 2em 0 10px 0;
+  margin-block-start: 2em;
+  margin-block-end: 10px;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   padding: 0.5em;
   color: #999999;
   font-style: normal;
@@ -488,14 +534,20 @@ hr {
 }
 
 #comments dd {
-  border-bottom: 1px dashed #dddddd;
-  margin: 0 0 2em 0;
+  border-block-end: 1px dashed #dddddd;
+  margin-block-start: 0;
+  margin-block-end: 2em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   padding: 0.5em;
 }
 
 #pings dt {
   background: #fcfcfc url(index.php?tf=images/border2.gif) repeat-x scroll center top;
-  margin: 2em 0 10px 0;
+  margin-block-start: 2em;
+  margin-block-end: 10px;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   padding: 0.5em;
   color: #999999;
   font-style: normal;
@@ -508,8 +560,11 @@ hr {
 }
 
 #pings dd {
-  border-bottom: 1px dashed #dddddd;
-  margin: 0 0 2em 0;
+  border-block-end: 1px dashed #dddddd;
+  margin-block-start: 0;
+  margin-block-end: 2em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   padding: 0.5em;
 }
 
@@ -528,9 +583,9 @@ hr {
 }
 
 .field textarea {
-  width: 90%;
+  inline-size: 90%;
   padding: 5px;
-  height: 20em;
+  block-size: 20em;
   border: 1px solid #ccc;
   font:
     1em Verdana,
@@ -542,10 +597,10 @@ hr {
 #blogextra div {
   background: #fdfcf6 url(index.php?tf=images/boxbg.gif) repeat-x;
   padding: 1.5em;
-  border-top: solid 1px #e1d2bd;
-  border-bottom: solid 1px #e1d2bd;
-  margin-bottom: 1em;
-  text-align: left;
+  border-block-start: solid 1px #e1d2bd;
+  border-block-end: solid 1px #e1d2bd;
+  margin-block-end: 1em;
+  text-align: start;
 }
 
 #sidebar h3 {
@@ -555,7 +610,9 @@ hr {
 
 #sidebar ul {
   list-style: none;
-  margin: 0.5em 0 0;
+  margin-block-start: 0.5em;
+  margin-block-end: 0;
+  margin-inline: 0;
 }
 
 #sidebar li {
@@ -566,7 +623,10 @@ hr {
 
 #sidebar li li {
   margin: 0;
-  padding: 0.5em 0 0 1em;
+  padding-block-start: 0.5em;
+  padding-block-end: 0;
+  padding-inline-start: 1em;
+  padding-inline-end: 0;
 }
 
 #footer {
@@ -577,7 +637,7 @@ hr {
 #sidebar div.syndicate ul li,
 #introcontent div p span.feed,
 #content p span.feed {
-  padding-left: 16px;
+  padding-inline-start: 16px;
   background: transparent url(index.php?tf=images/feed.png) no-repeat left center;
 }
 
@@ -586,9 +646,9 @@ hr {
 .tags ul li,
 .tags ul li a {
   display: inline;
-  width: auto;
-  padding-left: 0;
-  padding-right: 4px;
+  inline-size: auto;
+  padding-inline-start: 0;
+  padding-inline-end: 4px;
   background: transparent;
   line-height: 1.5em;
 }
@@ -659,7 +719,7 @@ hr {
 }
 
 .error ul {
-  padding-left: 20px;
+  padding-inline-start: 20px;
 }
 
 .error li {
@@ -667,26 +727,26 @@ hr {
 }
 
 .left {
-  float: left;
-  margin-right: 1em;
+  float: inline-start;
+  margin-inline-end: 1em;
 }
 
 .right {
-  float: right;
-  margin-left: 1em;
+  float: inline-end;
+  margin-inline-start: 1em;
 }
 
 .center {
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 
 .left-text {
-  text-align: left;
+  text-align: start;
 }
 
 .right-text {
-  text-align: right;
+  text-align: end;
 }
 
 .center-text {
@@ -705,10 +765,10 @@ hr {
 .box {
   background: #fdfcf6 url(index.php?tf=images/boxbg.gif) repeat-x;
   padding: 1.5em;
-  border-top: solid 1px #e1d2bd;
-  border-bottom: solid 1px #e1d2bd;
-  margin-bottom: 1em;
-  text-align: left;
+  border-block-start: solid 1px #e1d2bd;
+  border-block-end: solid 1px #e1d2bd;
+  margin-block-end: 1em;
+  text-align: start;
 }
 
 .post,

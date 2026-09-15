@@ -20,7 +20,10 @@ body,
 }
 
 body {
-  padding: 35px 0px 35px 0px;
+  padding-block-start: 35px;
+  padding-block-end: 35px;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
 }
 
 #page {
@@ -32,35 +35,38 @@ body {
 /* Page layout */
 
 #page {
-  width: 80%;
-  min-width: 760px;
+  inline-size: 80%;
+  min-inline-size: 760px;
 }
 
 #top {
   position: relative;
-  width: 100%;
-  height: 9em;
-  margin-bottom: 2px;
+  inline-size: 100%;
+  block-size: 9em;
+  margin-block-end: 2px;
 }
 
 #topcontent {
   position: absolute;
-  bottom: 0em;
-  padding: 0em 2.0em 1.3em 2.0em;
+  inset-block-end: 0em;
+  padding-block-start: 0em;
+  padding-block-end: 1.3em;
+  padding-inline-start: 2em;
+  padding-inline-end: 2em;
 }
 
 #prelude {
   position: absolute;
-  top: 1em;
-  right: 2.0em;
-  padding-right: 0;
+  inset-block-start: 1em;
+  inset-inline-end: 2em;
+  padding-inline-end: 0;
 }
 
 #topsearch {
   position: absolute;
-  top: 5.5em;
-  right: 2.0em;
-  padding-right: 0.0em;
+  inset-block-start: 5.5em;
+  inset-inline-end: 2em;
+  padding-inline-end: 0em;
 }
 
 #wrapper {
@@ -68,19 +74,22 @@ body {
 }
 
 #main {
-  float: left;
-  margin-right: -18.0em;
-  width: 100%;
+  float: inline-start;
+  margin-inline-end: -18em;
+  inline-size: 100%;
 }
 
 #content {
-  margin: 0 22em 0 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 22em;
 }
 
 #sidebar {
   margin: 0;
-  float: right;
-  width: 18.0em;
+  float: inline-end;
+  inline-size: 18em;
 }
 
 #blognav,
@@ -90,19 +99,19 @@ body {
 
 #footer {
   position: relative;
-  height: 2.0em;
+  block-size: 2em;
   clear: both;
-  padding-top: 5.0em;
+  padding-block-start: 5em;
 }
 
 #footer .left {
   position: absolute;
-  left: 2em;
-  bottom: 1.2em;
+  inset-inline-start: 2em;
+  inset-block-end: 1.2em;
 }
 
 #footer .right {
   position: absolute;
-  right: 2.0em;
-  bottom: 1.2em;
+  inset-inline-end: 2em;
+  inset-block-end: 1.2em;
 }
