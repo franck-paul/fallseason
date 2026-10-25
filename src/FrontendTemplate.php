@@ -86,7 +86,7 @@ class FrontendTemplate
                 break;
         }
 
-        return (string) ($current ? ' current_page_item' : '');
+        return $current ? ' current_page_item' : '';
     }
 
     /**
