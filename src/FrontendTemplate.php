@@ -72,14 +72,15 @@ class FrontendTemplate
         switch ($menu) {
             case 'user-defined':
                 // Compare item with current URL
-                if ($item !== '' && $_SERVER['REQUEST_URI'] == Html::stripHostURL(App::blog()->url()) . $item) {
+                $request_uri = is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+                if ($item !== '' && $request_uri === Html::stripHostURL(App::blog()->url()) . $item) {
                     $current = true;
                 }
 
                 break;
 
             default:
-                if ($menu == $mode) {
+                if ($menu === $mode) {
                     $current = true;
                 }
 
