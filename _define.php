@@ -16,9 +16,9 @@ if (isset($this) && is_object($this) && method_exists($this, 'registerModule') &
         'FallSeason',
         'A WP theme designed by Sadish Bala, adapted to Dotclear 2 by Franck Paul',
         'Franck Paul',
-        '7.1',
+        '7.2',
         [
-            'date'     => '2026-04-15T18:15:19+0200',
+            'date'     => '2026-11-06T10:06:51+0100',
             'requires' => [['core', '2.36']],
             'type'     => 'theme',
             'overload' => true,
